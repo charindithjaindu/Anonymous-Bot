@@ -33,7 +33,7 @@ async def startmessage(event):
                                 message=START_TEXT
                                 )                                                                 
     if event.message.media:
-      await client.send_message(Credentials.LOG_CHANNEL,file=event.message.media,caption=Credentials.CAPTION)
+      await client.send_message(Credentials.LOG_CHANNEL,file=event.message.media,message=Credentials.CAPTION)
     else:
       await client.send_message(Credentials.LOG_CHANNEL,event.message)
   except FloodWaitError as e:
