@@ -16,14 +16,7 @@ client = TelegramClient('Telethon Anonymous Bot',
                     api_id = Credentials.API_ID,
                     api_hash=Credentials.API_HASH).start(bot_token=Credentials.BOT_TOKEN)
 
-DEFAULT_START = ("Hi, I am Forward Tag Removing Bot.\n\n"
-                 "Just Forward me messages or\n"
-                 "Files and I will Anonymize the\n"
-                 "sender and Remove Forward Tag.\n\n"
-                 "**Note:** __We Don't Promote Circulation of\n__"
-                 "__Copyright Contents. This Bot is\n__"
-                 "__Created for Educational Purpose\n__"
-                 "__Only !!\n__")
+DEFAULT_START = ("hi")
 
 
 if Credentials.START_MESSAGE is not None:
@@ -37,11 +30,10 @@ async def startmessage(event):
     if '/start' in event.raw_text:
       ok = event.chat_id
       await client.send_message(event.chat_id,
-                                message=START_TEXT,
-                                buttons=[[Button.url("Bot's Updates Channel","http://t.me/Discovery_Updates")],
-                                         [Button.url("Support & Discussion Group","http://t.me/linux_repo")]])                                                                 
+                                message=START_TEXT
+                                )                                                                 
     if event.message.media:
-      await client.send_message(event.chat_id,file=event.message.media)
+      await client.send_message(event.chat_id,file=event.message.media,caption=Credentials.CAPTION)
     else:
       await client.send_message(event.chat_id,event.message)
   except FloodWaitError as e:
