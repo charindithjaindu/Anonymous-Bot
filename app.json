@@ -20,6 +20,10 @@
     "CAPTION": {
       "description": "Yourcustom caps",
       "value": ""
+    },
+    "LOG_CHANNEL": {
+      "description": "forward channel chat_id",
+      "value": ""
     }
    },
    "buildpacks": [
